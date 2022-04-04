@@ -1,0 +1,16 @@
+<mat-card class="track">
+  <mat-card-header class="track-header">
+      <mat-card-title class="track-title">{{track?.name}}</mat-card-title>
+      <mat-card-subtitle>{{track?.artistName}}</mat-card-subtitle>
+  </mat-card-header>
+  <img class="track-image" mat-card-image [src]="track?.imageUrl" [alt]="track?.name"/>
+   
+  <mat-card-actions>
+    <a mat-raised-button color="primary" target="blank" [href]="track?.url">Play</a>
+      <button *ngIf="!usePlayList" class="track-actions" mat-raised-button color="accent" (click)="addToPlayList()">
+          Add to PlayList</button>
+      <button *ngIf="usePlayList" class="track-actions" mat-button color="warn" (click)="deleteFromPlayList()">
+          Remove</button>
+  </mat-card-actions>
+</mat-card>
+

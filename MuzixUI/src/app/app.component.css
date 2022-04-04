@@ -1,0 +1,17 @@
+.fill-remaining-space {
+    flex: 1 1 auto;
+  }
+.mat-menu{
+  display: none;
+}
+@media screen and (max-width:600px){
+  .mat-menu{
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+  .nav{
+    display: none;
+  }
+}
+  

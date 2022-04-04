@@ -1,0 +1,39 @@
+version: '3'
+services:
+  user-app:
+    image: account-manager
+    build: ./accountmanager
+    restart: always
+    network_mode: host
+    container_name: account-docker
+    depends_on: 
+      - muzix-mysql
+    ports:
+      - "8081:8081"
+  muzix-app:
+    image: muzix-manager
+    build: ./muzixmanager
+    restart: always
+    network_mode: host
+    container_name: muzix-docker
+    depends_on: 
+      - muzix-mysql
+    ports:
+      - "8082:8082"
+  muzix-mysql:
+    image: mysql:5.5
+    network_mode: host
+    container_name: mysql-docker
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: muzix_db
+    ports:
+      - "3306:3306"
+  angular-app:
+    image: muzix-ui
+    build: ./MuzixUI
+    restart: always
+    container_name: muzixui-docker
+    network_mode: host
+    ports:
+      - "4200:4200"

@@ -1,0 +1,25 @@
+.track{
+    width: 300px;
+    margin: 8px;
+}
+.track-header{
+    height: 50px;
+}
+.track-image{
+    height: 300px;
+}
+.track-actions {
+   float: right;
+}
+@media screen and (max-width:768px){
+    .track{
+        width: 90vw;
+        margin: auto;
+    }
+}
+@media screen and (min-width:768px) and (max-width:1368px){
+    .track{
+        width: 320px;
+        margin: 5px;
+    }
+}

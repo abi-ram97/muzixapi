@@ -1,0 +1,4 @@
+<div class="track-container">
+<muzix-track *ngFor="let track of tracks" [track]="track" (addTrack)="addToPlayList($event)"
+    (removeTrack)="deleteFromPlayList($event)" [usePlayList]="usePlayList"></muzix-track>
+</div>

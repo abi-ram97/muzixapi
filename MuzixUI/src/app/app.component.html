@@ -1,0 +1,50 @@
+<mat-toolbar color="accent" *ngIf="router.url==='/login'||router.url==='/register'">
+    <span>Muzix App</span>
+    <span class="fill-remaining-space"></span>
+  <button mat-button class="login-button nav" [routerLink]="['/login']">Login</button>
+  <button mat-button class="register-nav nav" [routerLink]="['/register']">Register</button>
+  <button mat-icon-button [matMenuTriggerFor]="menu2" class="mat-menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu2="matMenu" xPosition="before" class="mat-menu">
+    <button mat-menu-item [routerLink]="['/login']">
+      <span>Login</span>
+    </button>
+    <button mat-menu-item [routerLink]="['/register']">
+      <span>Register</span>
+    </button>
+    </mat-menu>
+  </mat-toolbar>
+
+
+<mat-toolbar color="primary" *ngIf="router.url!='/login'&&router.url!='/register'">
+  <span>Muzix App</span>
+  <button mat-button class="popular-nav nav" [routerLink]="['/muzix/top-tracks']">Dashboard</button>
+  <button mat-button class="trending-nav nav" [routerLink]="['/muzix/trending']">Trending</button>
+  <button mat-button class="playlist-nav nav" [routerLink]="['/muzix/favorites']">Favorites</button>
+  <button mat-button class="search-nav nav" [routerLink]="['/muzix/search']">Search</button>
+  <span class="fill-remaining-space"></span>
+  <button mat-button class="logout-button nav" (click)="logout()">Logout</button>
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="mat-menu">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" xPosition="before" class="mat-menu">
+    <button mat-menu-item [routerLink]="['/muzix/top-tracks']">
+      <span>DashBoard</span>
+    </button>
+    <button mat-menu-item [routerLink]="['/muzix/trending']">
+      <span>Trending</span>
+    </button>
+    <button mat-menu-item [routerLink]="['/muzix/favorites']">
+      <span>Favorites</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
+    
+
+

@@ -1,0 +1,29 @@
+<form class="register-form" [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="register-block">
+          <div class="row">
+        <h3>Register User</h3>
+      </div>
+      <div class="row">
+        <mat-form-field class="register-input-full-width">
+          <input type="text" matInput placeholder="FirstName" id="firstName" formControlName="firstName">
+        </mat-form-field>
+        <mat-form-field class="register-input-full-width">
+          <input type="text" matInput placeholder="LastName" id="lastName" formControlName="lastName">
+        </mat-form-field>
+        <mat-form-field class="register-input-full-width">
+          <input type="text" matInput placeholder="User Id" id="userId" formControlName="userId" required>
+          <mat-error *ngIf="registerForm.get('userId').errors?.required">UserId is required</mat-error>
+          <mat-error *ngIf="registerForm.get('userId').errors?.minlength">Min Length is 5</mat-error>
+        </mat-form-field>
+        <mat-form-field class="register-input-full-width">
+          <input type="password" matInput placeholder="Password" id="password" formControlName="password" required>
+          <mat-error *ngIf="registerForm.get('password').errors?.required">Password is required</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <button class="register-user" type="submit" mat-raised-button color="primary" [disabled]="registerForm.invalid">Submit</button>
+        <button class="btn" type="reset" mat-button color="warn" (click)="registerForm.reset()">Clear</button>
+      </div>
+        </div>
+      </form>
+      
